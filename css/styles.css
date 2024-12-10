@@ -1,0 +1,441 @@
+:root {
+  --primary-color: #8ab83c;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  line-height: 1.6;
+  background-color: #F8F8F8;
+  color: #333;
+  box-sizing: border-box;
+}
+
+main {
+  padding-bottom: 12.5rem;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+/* Navbar */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  background-color: #F8F8F8;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.042vw;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.25em;
+  font-weight: 600;
+  transition: color 0.5s ease, background-color 0.5s ease;
+  white-space: nowrap;
+}
+
+.navbar ul li:last-child a {
+  margin-left: 0.313rem;
+  color: white;
+}
+
+/* Hero Section */
+
+.hero {
+  width: 100%;
+  height: 40vw; /* Keep the same height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+  padding-top: 7vw;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Matches the .hero height */
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  height: 100%; /* Ensures the images fill the container */
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%; /* Matches carousel height */
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps the aspect ratio intact */
+  object-position: center center; /* Ensure the image stays centered */
+}
+
+/* Overlay Styling */
+.overlay-image {
+  position: absolute;
+  top: clamp(30%, 35vw, 50%); /* Dynamically adjusts position */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(30rem, 20vw, 35rem); /* Scales image width dynamically */
+  height: clamp(3.2rem, 3vw, 3.2rem); /* Scales image height dynamically */
+  object-fit: fit;
+  z-index: 5;
+}
+
+.overlay-text {
+  position: absolute;
+  top: clamp(30%, 35vw, 50%); /* Matches the overlay image's position */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+}
+
+.overlay-text h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem); /* Dynamically adjusts font size */
+  margin: 0;
+}
+
+.overlay-text p {
+  font-size: clamp(1rem, 2vw, 1.5rem); /* Dynamically adjusts font size */
+  margin-top: 0.625rem;
+}
+
+
+/* About */
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 11.25rem 0 3.125rem;
+}
+
+.about-section > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap; /* Allow items to wrap if there's not enough space */
+}
+
+.text-container {
+  flex: 1;
+  padding-left: 7vw; /* Adjusted padding to balance text */
+  max-width: 50vw; /* Ensure text container doesn’t grow too wide */
+}
+
+.about-section img {
+  flex: 1;
+  width: 40vw; /* Image width set in terms of viewport width */
+  max-width: 45vw; /* Maximum width for image */
+  height: auto; /* Keeps the image proportional */
+  object-fit: cover;
+  padding: 0 7vw 0 3.125rem; /* Adjust padding to maintain consistency */
+}
+
+.about-title {
+  font-size: 3vw; /* Text size based on viewport width */
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.about-text {
+  font-family: "Inter", sans-serif;
+  font-size: 1.4vw; /* Font size based on viewport width */
+  line-height: 1.5;
+  font-weight: 300;
+  word-spacing: 6px;
+  font-style: italic;
+  color: #686868;
+}
+
+
+/* Meet the team */
+
+.team-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6.25rem 0 3.125rem;
+}
+
+.team-content h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 0 0 0.625rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.team-content p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  word-spacing: 4px;
+  font-weight: 400;
+  margin: 0 0 2.5rem;
+  color: #6F6F6F;
+  text-align: center;
+}
+
+.team-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 12.5rem;
+}
+
+.team-container h2{
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-container h3, .team-container p{
+  color: #6F6F6F;
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-wrapper {
+  background-color: white;
+  padding: 0.938rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, 
+              rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em;
+  display: inline-block;
+  max-width: 400px;
+  border-radius: 15px;
+}
+
+.sidney, .thanoj {
+  background-color: #fff;
+  max-width: 400px;
+  text-align: left;
+}
+
+.sidney h2, .thanoj h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidney h3, .thanoj h3 {
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  color: #6F6F6F;
+
+}
+
+.sidney p, .thanoj p {
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  color: #6F6F6F;
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+.info-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  width: 100%; /* Full width of the footer */
+  flex-wrap: wrap;
+  padding: 3.125rem 0 6.25rem;
+  gap: 30px; /* Adds space between the columns */
+  background-image: url('../img/filler.png');
+  background-size: cover; /* Optional: Ensures the image covers the footer */
+  color: white;
+}
+
+.contact-info, .location {
+  flex: 1; /* Makes both sections flexible to take up equal space */
+  min-width: 300px; /* Ensures both sections have a minimum width */
+  max-width: 600px; /* Ensure both sections have the same max width */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align text at the top */
+  align-items: flex-start; /* Align text to the left */
+}
+
+.location h1 {
+  font-size: 1.3rem;
+  margin: 0.313rem 0;
+  text-align: left; /* Align headings to the left */
+}
+
+.contact-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.625rem;
+  text-align: left;
+}
+
+.contact-info p {
+  font-size: 1.3rem;
+  text-align: left; /* Align paragraphs to the left */
+}
+
+.location iframe {
+  width: 100%; /* Full width of the .location container */
+  height: 100%; /* Full height of the .location container */
+  border-radius: 10px;
+}
+
+/* Links */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Center vertically */
+  padding: 3.125rem 0 3.125rem;
+  width: 100%;
+  gap: 100px;
+  background-color: black; /* Black background for this section */
+  color: white; /* Ensure text is visible on black */
+}
+
+.links-text{
+  flex: 1; /* Each column takes up equal space */
+  max-width: 400px;
+  justify-items: top;
+}
+
+.navigate, .company {
+  flex: 1; /* Each column takes up equal space */
+  max-width: 200px;
+  justify-items: top;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin-bottom: 0.625rem;
+}
+
+.links a {
+  text-decoration: none;
+  color: white; /* Adjust as needed */
+}
+
+.links h1 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.875rem;
+  text-transform: uppercase;
+}
+
+.links p {
+  margin-bottom: 1.875rem;
+}
+
+
+/* Hover effect */
+
+.nav-links li a:hover, .navigate li a:hover, .company li a:hover {
+  color: var(--primary-color);
+}
+
+/* Utility Classes */
+
+:target {
+  display: block;
+  position: relative;
+  top: -50px;
+  visibility: hidden;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  padding: 0.813rem 1.25rem;
+  background: var(--primary-color);
+  color: white;
+  border: 2px solid #8AB83C;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background: #2a3d08;
+}
+
+/* Navigation Buttons */
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.carousel-button.prev {
+  left: 0.625rem;
+}
+
+.carousel-button.next {
+  right: 0.625rem;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { }
+
