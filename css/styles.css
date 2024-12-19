@@ -58,11 +58,25 @@ main {
   color: white;
 }
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 4px;
+  background-color: black;
+  border-radius: 5px;
+}
+
 /* Hero Section */
 
 .hero {
   width: 100%;
-  height: 40vw; /* Keep the same height */
+  height: 40.5vw; /* Keep the same height */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -104,8 +118,8 @@ main {
   top: clamp(30%, 35vw, 50%); /* Dynamically adjusts position */
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(30rem, 20vw, 35rem); /* Scales image width dynamically */
-  height: clamp(3.2rem, 3vw, 3.2rem); /* Scales image height dynamically */
+  width: clamp(17rem, 25vw, 35rem); /* Scales image width dynamically */
+  height: clamp(2rem, 3vw, 3.2rem); /* Scales image height dynamically */
   object-fit: fit;
   z-index: 5;
 }
@@ -130,59 +144,37 @@ main {
   margin-top: 0.625rem;
 }
 
-
-/* About */
-
-.about-section {
+/* Home */
+.intro {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 11.25rem 0 3.125rem;
+  align-content: center;
+  margin: 3rem 10vh 0 10vh;
 }
 
-.about-section > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap; /* Allow items to wrap if there's not enough space */
+.intro p {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: white;
+  margin: 3vh 0 3vh 0;
+  background-color: var(--primary-color);
+  text-align: left;
+  padding: 3rem;
+  width: 30vw;
 }
 
-.text-container {
-  flex: 1;
-  padding-left: 7vw; /* Adjusted padding to balance text */
-  max-width: 50vw; /* Ensure text container doesn’t grow too wide */
-}
-
-.about-section img {
-  flex: 1;
-  width: 40vw; /* Image width set in terms of viewport width */
-  max-width: 45vw; /* Maximum width for image */
-  height: auto; /* Keeps the image proportional */
-  object-fit: cover;
-  padding: 0 7vw 0 3.125rem; /* Adjust padding to maintain consistency */
-}
-
-.about-title {
-  font-size: 3vw; /* Text size based on viewport width */
-  line-height: 1.4;
-  font-weight: 600;
-}
-
-.about-text {
-  font-family: "Inter", sans-serif;
-  font-size: 1.4vw; /* Font size based on viewport width */
-  line-height: 1.5;
-  font-weight: 300;
-  word-spacing: 6px;
-  font-style: italic;
-  color: #686868;
+.intro img {
+  margin: 3vh 0 3vh 0;
+  width: 35vw;
+  height: 50vh;
 }
 
 
-/* Meet the team */
+/* Services */
+
+
+/* About Us */
 
 .team-section {
   display: flex;
@@ -380,7 +372,7 @@ footer {
 :target {
   display: block;
   position: relative;
-  top: -50px;
+  top: -150px;
   visibility: hidden;
 }
 
@@ -430,12 +422,48 @@ footer {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { }
+/* Mobile styles */
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) { }
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { }
+  .navbar img {
+    width: 85px;
+    height: 85px;
+  }
 
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    background-color: #F8F8F8;
+    width: 98%;
+    padding: 1rem;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Reducing the height of the active nav links */
+  .nav-links.active {
+    display: flex;
+    padding: 0.5rem;
+    height: auto;
+  }
+
+  .nav-links li {
+    padding: 0.5rem;
+    font-size: 1.1em;
+  }
+
+  .nav-links li:first-child {
+    padding: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

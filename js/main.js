@@ -1,14 +1,28 @@
+// Toggle the navigation menu when hamburger is clicked
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
+
+// Close mobile menu when a link is clicked
+const mobileLinks = document.querySelectorAll('.nav-links a');
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const mobileMenu = document.querySelector('.nav-links');
+    mobileMenu.classList.remove('active'); // Remove the 'active' class to hide the menu
+  });
+});
+
+// Auto slide functions as before (no changes needed for this part)
 let currentIndex = 0;
 let autoSlideInterval = null; // Variable to store the interval ID
 
-// Function to update the carousel's position
 function updateCarousel() {
   const images = document.querySelector('.carousel-images');
   const imageWidth = images.querySelector('.carousel-item').clientWidth;
   images.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
 
-// Function to move to the next slide
 function nextSlide() {
   const items = document.querySelectorAll('.carousel-item');
   currentIndex = (currentIndex + 1) % items.length;
@@ -16,7 +30,6 @@ function nextSlide() {
   startAutoSlide(); // Restart the interval to reset the timer
 }
 
-// Function to move to the previous slide
 function prevSlide() {
   const items = document.querySelectorAll('.carousel-item');
   currentIndex = (currentIndex - 1 + items.length) % items.length;
@@ -24,24 +37,15 @@ function prevSlide() {
   startAutoSlide(); // Restart the interval to reset the timer
 }
 
-// Function to start the automatic slideshow
 function startAutoSlide() {
-  stopAutoSlide(); // Ensure no multiple intervals
-  autoSlideInterval = setInterval(() => {
-    nextSlide();
-  }, 20000); // Change every 20 seconds
+  stopAutoSlide(); // Stop any existing auto slide
+  autoSlideInterval = setInterval(nextSlide, 5000); // Start new auto slide
 }
 
-// Function to stop the automatic slideshow
 function stopAutoSlide() {
   if (autoSlideInterval) {
     clearInterval(autoSlideInterval);
-    autoSlideInterval = null;
   }
 }
 
-// Event listener to adjust slides on window resize
-window.addEventListener('resize', updateCarousel);
-
-// Start the slideshow on page load
-startAutoSlide();
+startAutoSlide(); // Start the auto-slide when the page loads
